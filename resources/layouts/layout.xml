@@ -1,0 +1,11 @@
+<resources>
+    <layouts>
+        <layout id="SimpleLayout">
+        </layout>
+
+        <layout id="PaceLayout">
+            <label x="center" y="125" text="@Strings.speed" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+            <label x="center" y="225" text="@Strings.pace" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+        </layout>
+    </layouts>
+</resources>
