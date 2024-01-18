@@ -4,9 +4,6 @@
     <string id="pace_picker_title">PACE</string>
     <string id="speed_picker_title">SPEED</string>
 
-    <string id="pace">0:00 min/km</string>
-    <string id="speed">0 km/h</string>
-
     <string id="menu_pace">Set pace</string>
     <string id="menu_speed">Set speed</string>
 </strings>
