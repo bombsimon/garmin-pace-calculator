@@ -3,12 +3,10 @@ import Toybox.System;
 import Toybox.WatchUi;
 
 class PaceCalculatorMenuDelegate extends WatchUi.MenuInputDelegate {
-    private var _pacePicker as PacePicker;
-    private var _paceDelegate as PaceDelegate;
+    private var _speedConverter as SpeedConverter;
 
-    function initialize(pacePicker as PacePicker, paceDelegate as PaceDelegate) {
-        _pacePicker = pacePicker;
-        _paceDelegate = paceDelegate;
+    function initialize(sc as SpeedConverter) {
+        _speedConverter = sc;
 
         MenuInputDelegate.initialize();
     }
@@ -16,9 +14,18 @@ class PaceCalculatorMenuDelegate extends WatchUi.MenuInputDelegate {
     function onMenuItem(item as Symbol) as Void {
         if (item == :pace) {
             WatchUi.popView(WatchUi.SLIDE_DOWN);
-            WatchUi.pushView(_pacePicker, _paceDelegate, WatchUi.SLIDE_DOWN);
+            WatchUi.pushView(
+                new PacePicker(_speedConverter),
+                new PaceDelegate(_speedConverter),
+                WatchUi.SLIDE_DOWN
+            );
         } else if (item == :speed) {
-            System.println("item 2");
+            WatchUi.popView(WatchUi.SLIDE_DOWN);
+            WatchUi.pushView(
+                new SpeedPicker(_speedConverter),
+                new SpeedDelegate(_speedConverter),
+                WatchUi.SLIDE_DOWN
+            );
         }
     }
 

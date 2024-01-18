@@ -1,7 +1,7 @@
 import Toybox.Lang;
 import Toybox.WatchUi;
 
-class PaceDelegate extends WatchUi.PickerDelegate {
+class SpeedDelegate extends WatchUi.PickerDelegate {
     private var _speedConverter as SpeedConverter;
 
     function initialize(sc as SpeedConverter) {
@@ -10,8 +10,8 @@ class PaceDelegate extends WatchUi.PickerDelegate {
         PickerDelegate.initialize();
     }
 
-    function onAccept(minutesAndSeconds) {
-        _speedConverter.setPaceWithNumbers(minutesAndSeconds as Array<Number>);
+    function onAccept(wholesAndFraction) {
+        _speedConverter.setSpeedWithNumberAndFraction(wholesAndFraction as Array<Number>);
         WatchUi.popView(WatchUi.SLIDE_UP);
 
         return true;

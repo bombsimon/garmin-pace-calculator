@@ -7,16 +7,14 @@ class PaceCalculatorView extends WatchUi.View {
     private var _fontHeight as Number;
     private var _centerX as Number;
     private var _centerY as Number;
+    private var _speedConverter as SpeedConverter;
 
-    var speedConverter as SpeedConverter;
-
-    function initialize() {
+    function initialize(sc as SpeedConverter) {
         _font = Graphics.FONT_SYSTEM_LARGE;
         _fontHeight = Graphics.getFontHeight(_font);
         _centerX = 0;
         _centerY = 0;
-
-        speedConverter = new SpeedConverter();
+        _speedConverter = sc;
 
         View.initialize();
     }
@@ -30,21 +28,25 @@ class PaceCalculatorView extends WatchUi.View {
 
     function onShow() as Void {}
 
+    function onHide() as Void {}
+
     function onUpdate(dc as Dc) as Void {
         View.onUpdate(dc);
 
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(_centerX, _centerY, _font, Lang.format("$1$ min/km", [speedConverter.pace]), Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(_centerX, _centerY + _fontHeight, _font, Lang.format("$1$ km/h", [speedConverter.speed.format("%.1f")]), Graphics.TEXT_JUSTIFY_CENTER);
-    }
-
-    function onHide() as Void {}
-
-    function updatePace(minutesAndSeconds as Array<Number>) as Void {
-        speedConverter.setPaceWithNumbers(minutesAndSeconds);
-    }
-
-    function updateSpeed(speed as Float) as Void {
-        speedConverter.setSpeed(speed);
+        dc.drawText(
+            _centerX,
+            _centerY,
+            _font,
+            Lang.format("$1$ min/km", [_speedConverter.pace]),
+            Graphics.TEXT_JUSTIFY_CENTER
+        );
+        dc.drawText(
+            _centerX,
+            _centerY + _fontHeight,
+            _font,
+            Lang.format("$1$ km/h", [_speedConverter.speed.format("%.1f")]),
+            Graphics.TEXT_JUSTIFY_CENTER
+        );
     }
 }

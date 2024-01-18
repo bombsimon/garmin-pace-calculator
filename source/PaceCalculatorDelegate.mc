@@ -2,20 +2,34 @@ import Toybox.Lang;
 import Toybox.WatchUi;
 
 class PaceCalculatorDelegate extends WatchUi.BehaviorDelegate {
-    var _paceDelegate as PaceDelegate;
-    var _pacePicker as PacePicker;
+    private var _speedConverter as SpeedConverter;
 
-    function initialize(view as PaceCalculatorView) {
-        _pacePicker = new PacePicker($.Rez.Strings.pace_picker_title.toString());
-        _paceDelegate = new PaceDelegate(view, _pacePicker);
+    function initialize(sc as SpeedConverter) {
+        _speedConverter = sc;
 
         BehaviorDelegate.initialize();
     }
 
+    //! Handle a button being pressed and released
+    //! @param evt The key event that occurred
+    //! @return true if handled, false otherwise
+    public function onKey(evt as KeyEvent) as Boolean {
+        var key = evt.getKey();
+        if ((WatchUi.KEY_START == key) || (WatchUi.KEY_ENTER == key)) {
+            return pushPicker();
+        }
+
+        return false;
+    }
+
     function onMenu() as Boolean {
+        return pushPicker();
+    }
+
+    function pushPicker() as Boolean {
         WatchUi.pushView(
             new $.Rez.Menus.MainMenu(),
-            new $.PaceCalculatorMenuDelegate(_pacePicker, _paceDelegate), 
+            new $.PaceCalculatorMenuDelegate(_speedConverter), 
             WatchUi.SLIDE_UP
         );
 

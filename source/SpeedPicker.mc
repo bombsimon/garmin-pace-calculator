@@ -2,10 +2,10 @@ import Toybox.WatchUi;
 import Toybox.Graphics;
 import Toybox.Lang;
 
-class PacePicker extends WatchUi.Picker {
+class SpeedPicker extends WatchUi.Picker {
 	function initialize(sc as SpeedConverter){
 		var text = new WatchUi.Text({
-            :text => $.Rez.Strings.pace_picker_title,
+            :text => $.Rez.Strings.speed_picker_title,
             :font => Graphics.FONT_SYSTEM_XTINY,
             :locX => WatchUi.LAYOUT_HALIGN_CENTER,
             :locY => WatchUi.LAYOUT_VALIGN_TOP,
@@ -16,7 +16,7 @@ class PacePicker extends WatchUi.Picker {
         WatchUi.Picker.initialize({
             :title => text,
             :pattern => createNumberPattern(),
-            :defaults => sc.pacePickerDefaults,
+            :defaults => sc.speedPickerDefaults,
         });
 
 		WatchUi.requestUpdate();
@@ -25,7 +25,7 @@ class PacePicker extends WatchUi.Picker {
 	function createNumberPattern() as Array<$.NumberFactory> {
         return [
             new $.NumberFactory(0, 60, 1, { :format => "%d" }),
-            new $.NumberFactory(0, 60, 1, { :format => "%02d" }),
+            new $.NumberFactory(0, 10, 1, { :format => "%d" }),
         ] as Array<$.NumberFactory>;
 	}
 }
