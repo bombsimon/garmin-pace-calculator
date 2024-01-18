@@ -3,6 +3,8 @@ import Toybox.Graphics;
 import Toybox.Lang;
 
 class SpeedPicker extends WatchUi.Picker {
+    //! Constructor
+    //! @param sc Speed converter object
 	function initialize(sc as SpeedConverter){
 		var text = new WatchUi.Text({
             :text => $.Rez.Strings.speed_picker_title,
@@ -12,7 +14,6 @@ class SpeedPicker extends WatchUi.Picker {
             :color => Graphics.COLOR_WHITE}
         );
 
-        // TODO: Find defaults
         WatchUi.Picker.initialize({
             :title => text,
             :pattern => createNumberPattern(),
@@ -22,6 +23,8 @@ class SpeedPicker extends WatchUi.Picker {
 		WatchUi.requestUpdate();
 	}
 
+    //! Constructor
+    //! @param sc Speed converter object
 	function createNumberPattern() as Array<$.NumberFactory> {
         return [
             new $.NumberFactory(0, 60, 1, { :format => "%d" }),

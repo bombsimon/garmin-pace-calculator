@@ -5,12 +5,16 @@ import Toybox.WatchUi;
 class PaceCalculatorMenuDelegate extends WatchUi.MenuInputDelegate {
     private var _speedConverter as SpeedConverter;
 
+    //! Constructor
+    //! @param sc Speed converter object
     function initialize(sc as SpeedConverter) {
         _speedConverter = sc;
 
         MenuInputDelegate.initialize();
     }
 
+    //! Push view based on which menu item was pressed.
+    //! @param sc Speed converter object
     function onMenuItem(item as Symbol) as Void {
         if (item == :pace) {
             WatchUi.popView(WatchUi.SLIDE_DOWN);
@@ -28,5 +32,4 @@ class PaceCalculatorMenuDelegate extends WatchUi.MenuInputDelegate {
             );
         }
     }
-
 }

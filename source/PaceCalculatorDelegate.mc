@@ -4,6 +4,8 @@ import Toybox.WatchUi;
 class PaceCalculatorDelegate extends WatchUi.BehaviorDelegate {
     private var _speedConverter as SpeedConverter;
 
+    //! Constructor
+    //! @param sc Speed converter object
     function initialize(sc as SpeedConverter) {
         _speedConverter = sc;
 
@@ -11,10 +13,12 @@ class PaceCalculatorDelegate extends WatchUi.BehaviorDelegate {
     }
 
     //! Handle a button being pressed and released
-    //! @param evt The key event that occurred
+    //! Not all devices register menu press so we also check for start or enter
+    //! key pressed.
+    //! @param event The key event that occurred
     //! @return true if handled, false otherwise
-    public function onKey(evt as KeyEvent) as Boolean {
-        var key = evt.getKey();
+    public function onKey(event as KeyEvent) as Boolean {
+        var key = event.getKey();
         if ((WatchUi.KEY_START == key) || (WatchUi.KEY_ENTER == key)) {
             return pushPicker();
         }
@@ -22,6 +26,8 @@ class PaceCalculatorDelegate extends WatchUi.BehaviorDelegate {
         return false;
     }
 
+    //! Handle menu opening
+    //! Will push picket menu view.
     function onMenu() as Boolean {
         return pushPicker();
     }

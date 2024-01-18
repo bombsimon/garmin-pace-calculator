@@ -2,6 +2,8 @@ import Toybox.Application;
 import Toybox.Lang;
 import Toybox.WatchUi;
 
+//! The PaceCalculator app is an app that can convert between pace (min/km) and
+//! speed (km/h).
 class PaceCalculatorApp extends Application.AppBase {
     private var _speedConverter as SpeedConverter;
 
@@ -11,13 +13,13 @@ class PaceCalculatorApp extends Application.AppBase {
         AppBase.initialize();
     }
 
-    // onStart() is called on application start up
+    //! onStart() is called on application start up
     function onStart(state as Dictionary?) as Void {}
 
-    // onStop() is called when your application is exiting
+    //! onStop() is called when your application is exiting
     function onStop(state as Dictionary?) as Void {}
 
-    // Return the initial view of your application here
+    //! Returns initial view of application.
     function getInitialView() as Array<Views or InputDelegates>? {
         return [
             new PaceCalculatorView(_speedConverter),
