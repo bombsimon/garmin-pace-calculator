@@ -16,8 +16,8 @@ class SpeedConverter {
     function initialize() {
         speed = 0.0;
         pace = "";
-        speedPickerDefaults = [ 0, 0 ] as Array<Number>;
-        pacePickerDefaults = [ 0, 0 ] as Array<Number>;
+        speedPickerDefaults = [0, 0] as Array<Number>;
+        pacePickerDefaults = [0, 0] as Array<Number>;
 
         var defaultPace = Storage.getValue("pace");
         if (defaultPace == null) {
@@ -39,8 +39,12 @@ class SpeedConverter {
 
     //! Set speed based on input from picker (Array of whole number and fraction
     //! as two separate elements).
-    function setSpeedWithNumberAndFraction(numberAndFraction as Array<Number>) as Void {
-        var _speed = numberAndFraction[0] as Float + (numberAndFraction[1] as Float / 10.0);
+    function setSpeedWithNumberAndFraction(
+        numberAndFraction as Array<Number>
+    ) as Void {
+        var _speed =
+            (numberAndFraction[0] as Float) +
+            (numberAndFraction[1] as Float) / 10.0;
         setSpeed(_speed);
     }
 
@@ -55,32 +59,33 @@ class SpeedConverter {
     //! Set pace based on input from picker (Array of minutes and seconds as two
     //! separate elements).
     function setPaceWithNumbers(minutesAndSeconds as Array<Number>) as Void {
-        var pace = Lang.format(
-            "$1$:$2$",
-            [
-                minutesAndSeconds[0].format("%d"),
-                minutesAndSeconds[1].format("%02d"),
-            ]
-        );
+        var pace = Lang.format("$1$:$2$", [
+            minutesAndSeconds[0].format("%d"),
+            minutesAndSeconds[1].format("%02d"),
+        ]);
 
         setPace(pace);
     }
 
     //! Update pace will set the pace based on the objects current speed.
     private function updatePace() as Void {
-        var _pace = 60 / speed as Float;
+        var _pace = 60 / (speed as Float);
         var minutes = Math.floor(_pace) as Number;
         var seconds = Math.round((_pace - minutes) * 60);
 
-        pace = Lang.format("$1$:$2$", [ minutes.format("%02d"), seconds.format("%02d") ]);
+        pace = Lang.format("$1$:$2$", [
+            minutes.format("%02d"),
+            seconds.format("%02d"),
+        ]);
     }
 
     //! Update speed will set the speed based on the objects current pace.
     private function updateSpeed() as Void {
         var minutesAndSeconds = splitTime(pace) as Array<Number>;
-        var paceInHours = minutesAndSeconds[0] / 60 + minutesAndSeconds[1] / 3600;
+        var paceInHours =
+            minutesAndSeconds[0] / 60 + minutesAndSeconds[1] / 3600;
 
-        speed = 1 / paceInHours as Float;
+        speed = 1 / (paceInHours as Float);
     }
 
     //! Update configuration will persist the pace to storage and compute the
@@ -90,8 +95,10 @@ class SpeedConverter {
         Storage.setValue("pace", pace as String);
 
         var speedWholeNumber = speed.toNumber();
-        var speedFraction = Math.round((speed - speedWholeNumber) * 10) as Number;
-        speedPickerDefaults = [ speedWholeNumber, speedFraction ] as Array<Number>;
+        var speedFraction =
+            Math.round((speed - speedWholeNumber) * 10) as Number;
+        speedPickerDefaults =
+            [speedWholeNumber, speedFraction] as Array<Number>;
 
         pacePickerDefaults = splitTime(pace) as Array<Number>;
     }
@@ -115,6 +122,6 @@ class SpeedConverter {
             seconds = secondString.toFloat() as Float;
         }
 
-        return [ minutes, seconds ] as Array<Float>;
+        return [minutes, seconds] as Array<Float>;
     }
 }

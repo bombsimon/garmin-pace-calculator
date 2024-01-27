@@ -21,10 +21,12 @@ class PaceCalculatorApp extends Application.AppBase {
 
     //! Returns initial view of application.
     function getInitialView() as Array<Views or InputDelegates>? {
-        return [
-            new PaceCalculatorView(_speedConverter),
-            new PaceCalculatorDelegate(_speedConverter),
-        ] as Array<Views or InputDelegates>;
+        return (
+            [
+                new PaceCalculatorView(_speedConverter),
+                new PaceCalculatorDelegate(_speedConverter),
+            ] as Array<Views or InputDelegates>
+        );
     }
 }
 

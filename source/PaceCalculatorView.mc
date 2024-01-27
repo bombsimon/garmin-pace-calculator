@@ -22,10 +22,15 @@ class PaceCalculatorView extends WatchUi.View {
     //! Handle when the app is shown to screen.
     function onShow() as Void {
         var pace = findDrawableById("pace") as Text;
-        pace.setText(Lang.format("$1$ min/km", [_speedConverter.pace]) as String);
+        pace.setText(
+            Lang.format("$1$ min/km", [_speedConverter.pace]) as String
+        );
 
         var speed = findDrawableById("speed") as Text;
-        speed.setText(Lang.format("$1$ km/h", [_speedConverter.speed.format("%.1f")]) as String);
+        speed.setText(
+            Lang.format("$1$ km/h", [_speedConverter.speed.format("%.1f")]) as
+                String
+        );
     }
 
     //! Handle when the app is removed from screen.

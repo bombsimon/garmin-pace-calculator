@@ -16,7 +16,9 @@ class SpeedDelegate extends WatchUi.PickerDelegate {
     //! @param minutesAndSeconds Array for all elements (minutes and seconds)
     //! @return True when handled.
     function onAccept(wholesAndFraction) {
-        _speedConverter.setSpeedWithNumberAndFraction(wholesAndFraction as Array<Number>);
+        _speedConverter.setSpeedWithNumberAndFraction(
+            wholesAndFraction as Array<Number>
+        );
         WatchUi.popView(WatchUi.SLIDE_UP);
 
         return true;

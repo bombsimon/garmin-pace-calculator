@@ -19,7 +19,7 @@ class PaceCalculatorDelegate extends WatchUi.BehaviorDelegate {
     //! @return true if handled, false otherwise
     public function onKey(event as KeyEvent) as Boolean {
         var key = event.getKey();
-        if ((WatchUi.KEY_START == key) || (WatchUi.KEY_ENTER == key)) {
+        if (WatchUi.KEY_START == key || WatchUi.KEY_ENTER == key) {
             return pushPicker();
         }
 
@@ -35,7 +35,7 @@ class PaceCalculatorDelegate extends WatchUi.BehaviorDelegate {
     function pushPicker() as Boolean {
         WatchUi.pushView(
             new $.Rez.Menus.MainMenu(),
-            new $.PaceCalculatorMenuDelegate(_speedConverter), 
+            new $.PaceCalculatorMenuDelegate(_speedConverter),
             WatchUi.SLIDE_UP
         );
 
