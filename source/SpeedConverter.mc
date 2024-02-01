@@ -43,8 +43,8 @@ class SpeedConverter {
         numberAndFraction as Array<Number>
     ) as Void {
         var _speed =
-            (numberAndFraction[0] as Float) +
-            (numberAndFraction[1] as Float) / 10.0;
+            numberAndFraction[0].toFloat() +
+            numberAndFraction[1].toFloat() / 10.0;
         setSpeed(_speed);
     }
 
@@ -70,7 +70,7 @@ class SpeedConverter {
     //! Update pace will set the pace based on the objects current speed.
     private function updatePace() as Void {
         var _pace = 60 / (speed as Float);
-        var minutes = Math.floor(_pace) as Number;
+        var minutes = Math.floor(_pace).toNumber();
         var seconds = Math.round((_pace - minutes) * 60);
 
         pace = Lang.format("$1$:$2$", [
@@ -83,9 +83,10 @@ class SpeedConverter {
     private function updateSpeed() as Void {
         var minutesAndSeconds = splitTime(pace) as Array<Number>;
         var paceInHours =
-            minutesAndSeconds[0] / 60 + minutesAndSeconds[1] / 3600;
+            minutesAndSeconds[0].toFloat() / 60 +
+            minutesAndSeconds[1].toFloat() / 3600;
 
-        speed = 1 / (paceInHours as Float);
+        speed = 1 / paceInHours;
     }
 
     //! Update configuration will persist the pace to storage and compute the
@@ -95,8 +96,9 @@ class SpeedConverter {
         Storage.setValue("pace", pace as String);
 
         var speedWholeNumber = speed.toNumber();
-        var speedFraction =
-            Math.round((speed - speedWholeNumber) * 10) as Number;
+        var speedFraction = Math.round(
+            (speed - speedWholeNumber) * 10
+        ).toNumber();
         speedPickerDefaults =
             [speedWholeNumber, speedFraction] as Array<Number>;
 
@@ -106,7 +108,7 @@ class SpeedConverter {
     //! Split time into two floats
     //! @param time A string with the pace (or time)
     //! @return An array of two floats.
-    private function splitTime(time as String) as Array<Float> {
+    private function splitTime(time as String) as Array<Number> {
         var index = time.find(":") as Number;
         var minutes = 0;
         var seconds = 0;
@@ -115,13 +117,13 @@ class SpeedConverter {
         var secondString = time.substring(index + 1, time.length());
 
         if (minuteString instanceof String) {
-            minutes = minuteString.toFloat() as Float;
+            minutes = minuteString.toNumber();
         }
 
         if (secondString instanceof String) {
-            seconds = secondString.toFloat() as Float;
+            seconds = secondString.toNumber();
         }
 
-        return [minutes, seconds] as Array<Float>;
+        return [minutes, seconds] as Array<Number>;
     }
 }
