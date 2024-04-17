@@ -1,5 +1,4 @@
 <drawables>
-    <bitmap id="SpeedIcon" filename="speed.png" />
     <bitmap id="SpeedIcon65x65" filename="speed-65x65.png" />
     <bitmap id="SpeedIcon24x24" filename="speed-24x24.png" />
 </drawables>
