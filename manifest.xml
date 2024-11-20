@@ -91,7 +91,6 @@
             <iq:product id="fr645m"/>
             <iq:product id="fr735xt"/>
             <iq:product id="fr745"/>
-            <iq:product id="fr920xt"/>
             <iq:product id="fr935"/>
             <iq:product id="fr945"/>
             <iq:product id="fr945lte"/>
@@ -156,6 +155,8 @@
             Use "Monkey C: Configure Monkey Barrel" from the Visual Studio Code
             command palette to edit the included barrels.
         -->
-        <iq:barrels/>
+        <iq:barrels>
+            <iq:depends name="TouchKeypad" version="0.0.1"/>
+        </iq:barrels>
     </iq:application>
 </iq:manifest>

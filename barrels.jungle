@@ -1,5 +1,5 @@
 # Do not hand edit this file. To make changes run the
 # "Configure Monkey Barrels" command.
 
-TouchKeypad = [..\garmin-touch-keypad\monkey.jungle]
+TouchKeypad = [c:\Users\simon\git\garmin-touch-keypad\monkey.jungle]
 base.barrelPath = $(base.barrelPath);$(TouchKeypad)
