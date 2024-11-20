@@ -6,4 +6,6 @@
 
     <string id="menuPace">Set pace</string>
     <string id="menuSpeed">Set speed</string>
+
+    <string id="useTouchSettingsTitle">Use touch input (if supported by device)</string>
 </strings>

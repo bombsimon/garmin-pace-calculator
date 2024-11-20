@@ -1,0 +1,5 @@
+<settings>
+    <setting propertyKey="@Properties.useTouch" title="@Strings.useTouchSettingsTitle">
+        <settingConfig type="boolean" />
+    </setting>
+</settings>
