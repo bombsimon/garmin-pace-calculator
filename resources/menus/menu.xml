@@ -1,4 +1,4 @@
 <menu id="MainMenu">
-    <menu-item id="pace" label="@Strings.menu_pace" />
-    <menu-item id="speed" label="@Strings.menu_speed" />
+    <menu-item id="pace" label="@Strings.menuPace" />
+    <menu-item id="speed" label="@Strings.menuSpeed" />
 </menu>

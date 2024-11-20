@@ -1,9 +1,9 @@
 <strings>
     <string id="AppName">Pace Calculator</string>
 
-    <string id="pace_picker_title">PACE</string>
-    <string id="speed_picker_title">SPEED</string>
+    <string id="pacePickerTitle">PACE</string>
+    <string id="speedPickerTitle">SPEED</string>
 
-    <string id="menu_pace">Set pace</string>
-    <string id="menu_speed">Set speed</string>
+    <string id="menuPace">Set pace</string>
+    <string id="menuSpeed">Set speed</string>
 </strings>

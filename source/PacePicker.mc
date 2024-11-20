@@ -7,7 +7,7 @@ class PacePicker extends WatchUi.Picker {
     //! @param sc Speed converter object
     function initialize(sc as SpeedConverter) {
         var text = new WatchUi.Text({
-            :text => $.Rez.Strings.pace_picker_title,
+            :text => $.Rez.Strings.pacePickerTitle,
             :font => Graphics.FONT_SYSTEM_XTINY,
             :locX => WatchUi.LAYOUT_HALIGN_CENTER,
             :locY => WatchUi.LAYOUT_VALIGN_TOP,
