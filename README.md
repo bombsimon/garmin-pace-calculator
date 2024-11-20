@@ -2,7 +2,8 @@
 
 Convert speed to pace and pace to speed directly on your watch.
 
-![screenshot](screenshot.png)
+![screenshot](screenshots/screenshot.png)
+![screenshot-2](screenshots/screenshot-2.png)
 
 ## Features
 
@@ -14,5 +15,5 @@ Convert speed to pace and pace to speed directly on your watch.
 
 ### ![logo](resources/drawables/speed-24x24.png) Logo
 
-The logo  is licensed under CC BY 3 and downloaded from
+The logo is licensed under CC BY 3 and downloaded from
 [iconduck.com](https://iconduck.com/icons/48323/speed).
