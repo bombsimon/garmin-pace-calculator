@@ -6,6 +6,7 @@ import Toybox.Application.Storage;
 //! Every time either is set, the corresponding value will be updated. This will
 //! also set the picker defaults (arrays) so the next time a picker is selected
 //! the right defautl values are used.
+(:glance)
 class SpeedConverter {
     var speed as Float;
     var pace as String;

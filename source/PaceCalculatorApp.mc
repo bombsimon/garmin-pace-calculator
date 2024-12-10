@@ -4,6 +4,7 @@ import Toybox.WatchUi;
 
 //! The PaceCalculator app is an app that can convert between pace (min/km) and
 //! speed (km/h).
+(:typecheck(false))
 class PaceCalculatorApp extends Application.AppBase {
     private var _speedConverter as SpeedConverter;
 
@@ -25,6 +26,16 @@ class PaceCalculatorApp extends Application.AppBase {
             new PaceCalculatorView(_speedConverter),
             new PaceCalculatorDelegate(_speedConverter),
         ];
+    }
+
+    (:glance)
+    function getGlanceView() {
+        return [new PaceCalculatorGlanceView(_speedConverter)];
+    }
+
+    (:glance)
+    function getGlanceTheme() as AppBase.GlanceTheme {
+        return AppBase.GLANCE_THEME_GOLD;
     }
 }
 
